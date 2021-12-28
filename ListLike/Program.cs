@@ -7,10 +7,11 @@ namespace ListLike
     {
         static void Main(string[] args)
         {
-            test1();
+
+            List<int> listi=new List<int>();
+            //test1();
             Console.WriteLine("----------");
-            test2();
-            Console.WriteLine("1");
+            //test2();
         }
         static void test1()
         {

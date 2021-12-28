@@ -7,18 +7,28 @@ using System.Threading.Tasks;
 
 namespace ListLike
 {
+    internal class Node <T>
+    {
+        public T Current { get; set; }
+        public Node<T> Next;
+
+        public Node(T current)
+        {
+            this.Current= current;
+            this.Next = null;
+        }
+    }
     public class ListImplementation <T> :IEnumerable<T>
     {
-        private T? Current;
-        private ListImplementation<T> nextNode;
+        private Node<T> Head;
         public T this[int i]
         {
             get {
                 int j = 1;
-                var node = this;
+                var node = this.Head;
                 while(j<=i)
                 {
-                    node = node.nextNode;
+                    node = node.Next;
                     j++;
                 }
                 return node.Current; 
@@ -26,35 +36,32 @@ namespace ListLike
             }
             set {
                 int j = 1;
-                var node = this;
+                var node = this.Head;
                 while (j <= i)
                 {
-                    node = node.nextNode;
+                    node = node.Next;
                     j++;
                 }
                 node.Current = value;
             }
         }
-
-
-        public ListImplementation(T curNode)
-        {
-            this.Current= curNode;
-            this.nextNode = null;
-        }
         public ListImplementation()
         {
 
         }
+
+        public ListImplementation(T value)
+        {
+            this.Head.Current =value ;
+        }
         public void Clear()
         {
-            this.Current = default(T);
-            this.nextNode = null;
+            this.Head = null;
         }
         public void Add(T node)
         {
             
-            if (this.Current==null)
+            if (this.Head.Current==null)
             {
                 this.Current=node;
             }
