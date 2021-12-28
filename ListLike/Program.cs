@@ -33,9 +33,12 @@ namespace ListLike
         }
         static void test2()
         {
-            var Todo = new ListImplementation<string>();//{ "gaigvidzeba","adgoma","chama","kbilebisGaxexva","mushaoba"};
+            var Todo = new ListImplementation<string>();//{ "gaigvidzeba","adgoma","chama","kbilebisGaxexva","mushaoba"}; es vegar gavaketes
             Todo.Add("raime");
             Todo.Add("gagvidzeba");
+            Todo.Clear();
+            Todo.Add("raime");
+            Todo.Add("raime2");
             Todo[0] = "sizmirdan gamosvla";
             Console.WriteLine(Todo[0]);
             Console.WriteLine("-----");
