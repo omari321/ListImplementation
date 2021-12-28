@@ -8,38 +8,35 @@ namespace ListLike
         static void Main(string[] args)
         {
 
-            List<int> listi=new List<int>();
-            //test1();
+            test1();
             Console.WriteLine("----------");
-            //test2();
+            test2();
         }
         static void test1()
         {
             var list=new ListImplementation<int>(1);
             list.Add(5);
             list.Add(8);
+            list[0] = 100;
             list[2] = 9;
+            list.GetSize();
+            list.GetLast();
             Console.WriteLine(list[2]);
-            foreach(var i in list)
-            {
-                Console.WriteLine(i);
-            }
+           
             Console.WriteLine(list.GetLast());
             Console.WriteLine(list.GetSize());
             Console.WriteLine( list.GetFirst()); 
-            Console.ReadKey();
         }
         static void test2()
         {
-            var Todo = new ListImplementation<string>() { "gaigvidzeba","adgoma","chama","kbilebisGaxexva","mushaoba"};
-            Todo.PrintAll();
+            var Todo = new ListImplementation<string>();//{ "gaigvidzeba","adgoma","chama","kbilebisGaxexva","mushaoba"};
+            Todo.Add("raime");
+            Todo.Add("gagvidzeba");
             Todo[0] = "sizmirdan gamosvla";
             Console.WriteLine(Todo[0]);
             Console.WriteLine("-----");
-            foreach(var i in Todo)
-            {
-                Console.WriteLine(i);
-            }
+            Todo.PrintAll();
+           
 
 
             Console.WriteLine(Todo.GetFirst());

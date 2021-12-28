@@ -18,7 +18,7 @@ namespace ListLike
             this.Next = null;
         }
     }
-    public class ListImplementation <T> :IEnumerable<T>
+    public class ListImplementation <T> 
     {
         private Node<T> Head;
         public T this[int i]
@@ -52,80 +52,65 @@ namespace ListLike
 
         public ListImplementation(T value)
         {
-            this.Head.Current =value ;
+            this.Head=new Node<T>(value);
         }
         public void Clear()
         {
             this.Head = null;
         }
-        public void Add(T node)
+        public void Add(T value)
         {
             
-            if (this.Head.Current==null)
+            if (this.Head==null)
             {
-                this.Current=node;
+                this.Head = new Node<T>(value);
             }
             else
             {
-                var curNode = this;
-                while(curNode.nextNode!=null)
+                var Node = this.Head;
+                while(Node.Next!=null)
                 {
-                    curNode=curNode.nextNode;
+                    Node=Node.Next;
                 }
-                curNode.nextNode=new ListImplementation<T>(node);
+                Node.Next=new Node<T>(value);
             }
         }
         public int GetSize()
         {
             var count = 0;
-            var node = this;
-            while(node != null && node.Current != null)
+            var node = this.Head;
+            while(node!= null)
             {
                 count++;
-                node = node.nextNode;
+                node = node.Next;
             }
             return count;
         }
         public T GetFirst()
         {
-            return this.Current;
+            return Head.Current;
         }
         public T GetLast()
         {
-            var node = this;
-            if (node.Current != null)
+            var node = this.Head;
+            if (node != null)
             {
-                while(node != null && node.nextNode!=null)
+                while(node.Next!=null)
                 {
-                    node=node.nextNode;
+                    node=node.Next;
                 }
             }
             return node.Current;
         }
         public void PrintAll()
         {
-            var node = this;
-            while (node != null && node.Current!=null)
+            var node = this.Head;
+            while (node!=null)
             {
-            Console.WriteLine(node.Current);
-            node=node.nextNode;
+                Console.WriteLine(node.Current);
+                node=node.Next;
             }
            
-        }
-
-        public IEnumerator<T> GetEnumerator()
-        {
-            var node = this;
-            while (node!= null && node.Current != null)
-            {
-                yield return node.Current;
-                node = node.nextNode;
-            }
-        }
-
-        IEnumerator IEnumerable.GetEnumerator()
-        {
-            return ((IEnumerable)nextNode).GetEnumerator();
         }
     }
 }
