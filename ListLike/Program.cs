@@ -10,6 +10,7 @@ namespace ListLike
             test1();
             Console.WriteLine("----------");
             test2();
+            Console.WriteLine("1");
         }
         static void test1()
         {
