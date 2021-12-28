@@ -112,5 +112,14 @@ namespace ListLike
             }
            
         }
+        public IEnumerator<T> GetEnumerator()
+        {
+            var node = this.Head;
+            while (node!= null)
+            {
+                yield return node.Current;
+                node = node.Next;
+            }
+        }
     }
 }

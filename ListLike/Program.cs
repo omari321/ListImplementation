@@ -21,6 +21,10 @@ namespace ListLike
             list[2] = 9;
             list.GetSize();
             list.GetLast();
+            foreach (var item in list)
+            {
+                Console.WriteLine(item);
+            }
             Console.WriteLine(list[2]);
            
             Console.WriteLine(list.GetLast());
@@ -36,7 +40,10 @@ namespace ListLike
             Console.WriteLine(Todo[0]);
             Console.WriteLine("-----");
             Todo.PrintAll();
-           
+             foreach(var item in Todo)
+            {
+                Console.WriteLine(item);
+            }
 
 
             Console.WriteLine(Todo.GetFirst());
